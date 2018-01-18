@@ -1,0 +1,18 @@
+{
+  "name": "doc-builder",
+  "version": "1.0.0",
+  "description": "Framework Doc Builder",
+  "scripts": {
+    "dev": "forever core.js"
+  },
+  "keywords": [
+    "document"
+  ],
+  "author": "Aford",
+  "license": "MIT",
+  "devDependencies": {
+    "execa": "^0.9.0",
+    "forever": "^0.15.3",
+    "gitbook-cli": "^2.3.2"
+  }
+}
