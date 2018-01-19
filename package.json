@@ -2,8 +2,11 @@
   "name": "doc-builder",
   "version": "1.0.0",
   "description": "Framework Doc Builder",
+  "private": true,
   "scripts": {
-    "dev": "forever core.js"
+    "init": "node core/install.js",
+    "build": "gulp build",
+    "dev": "gulp dev"
   },
   "keywords": [
     "document"
@@ -11,8 +14,13 @@
   "author": "Aford",
   "license": "MIT",
   "devDependencies": {
+    "chalk": "^2.3.0",
     "execa": "^0.9.0",
-    "forever": "^0.15.3",
-    "gitbook-cli": "^2.3.2"
+    "gitbook": "^3.2.3",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.2.0",
+    "gulp-gitbook": "0.0.2",
+    "gulp-sequence": "^1.0.0",
+    "opn": "^5.2.0"
   }
 }
