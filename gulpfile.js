@@ -18,9 +18,12 @@ gulp.task('server', () => {
 })
 
 gulp.task('build', () => {
-  gitbook('./doc/', () => {
-    gulp.src('./doc/_book/').pipe(connect.reload())
-    console.log(chalk.green('Build complete.\n'))
+  return new Promise((resolve, reject) => {
+    gitbook('./doc/', () => {
+      gulp.src('./doc/_book/').pipe(connect.reload())
+      console.log(chalk.green('Build complete.\n'))
+      resolve()
+    })
   })
 })
 
