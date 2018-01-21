@@ -36,9 +36,9 @@
     ![安装依赖完成后](images/dev-img.png)
 
     | 属性 | 含义 | 值 | 建议 |
-    | ---|:---:|:---:|:--------------:|
-    | extCSS | 外部css地址(主要为第三方样式文件) | https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css | 根据需要自动设置cdn外联样式 |
-    | extJS | 外部js地址(比如echart，axios等第三方库) | https://cdn.bootcss.com/axios/0.17.1/axios.min.js | 根据需要自动设置cdn外联样式 |
+    | ---|:---:|:---:|:---:|
+    | extCSS | 外部css地址(主要为第三方样式文件) | '' | 根据需要自动设置cdn外联样式 |
+    | extJS | 外部js地址(比如echart，axios等第三方库) | '' | 根据需要自动设置cdn外联样式 |
     | port | 端口 | 5000 | 根据需要自动设置 |
     | autoOpenBrowser | 是否自动打开浏览器 | true | 不建议 |
     | projectName | 浏览器中的显示名 | '神机营' | 根据需要自动设置 |
@@ -54,8 +54,8 @@
 
     | 属性 | 含义 | 值 | 建议 |
     | ---|:---:|:---:|:---:|
-    | extCSS | 外部css地址(主要为第三方样式文件) | https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css | 根据需要自动设置cdn外联样式 |
-    | extJS | 外部js地址(比如echart，axios等第三方库) | https://cdn.bootcss.com/axios/0.17.1/axios.min.js | 根据需要自动设置cdn外联样式 |
+    | extCSS | 外部css地址(主要为第三方样式文件) | '' | 根据需要自动设置cdn外联样式 |
+    | extJS | 外部js地址(比如echart，axios等第三方库) | '' | 根据需要自动设置cdn外联样式 |
     | index | html入口文件 | path.resolve(__dirname, '../dist/index.html') | 不建议 |
     | assetsRoot | 产品文件的存放路径 | path.resolve(__dirname, '../dist') | 不建议 |
     | assetsSubDir | 静态资源放在文件夹 | 'static' | 根据需要自动设置 |
