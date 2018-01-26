@@ -38,7 +38,7 @@ const server = app.listen(port)
 
 ```javascript
 const proxyMiddleware = require('http-proxy-middleware')
-//根据settings/core文件中的proxyTable配置来设置express服务器的http代理规则
+// 根据settings/core文件中的proxyTable配置来设置express服务器的http代理规则
 Object.keys(proxyTable).forEach(context => {
   let options = proxyTable[context]
   if (typeof options === 'string') {
@@ -64,14 +64,16 @@ app.use(mockPath, express.static('./mock'))
   webpack-dev-middleware会通过watch mode，监听资源的变更，然后自动打包。编译完成后会将编译后的文件写入内存。
 
 ```javascript
-//webpack-dev-middleware将编译后的文件存放在内存中而没有写入硬盘
+// webpack-dev-middleware将编译后的文件存放在内存中而没有写入硬盘
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: webpackConfig.output.publicPath,  //设置访问路径,它的配置在settings/core文件中dev下的assetsPublicPath属性
-  quiet: true   //设置为true后，使其不在控制台输出日志
+  // 设置访问路径,它的配置在settings/core文件中dev下的assetsPublicPath属性
+  publicPath: webpackConfig.output.publicPath,
+  // 设置为true后，使其不在控制台输出日志
+  quiet: true   
 })
-//挂载webpack-dev-middleware中间件
+// 挂载webpack-dev-middleware中间件
 app.use(devMiddleware)
-//webpack-dev-middleware等待webpack完成所有编译后，控制台输出完成提示，并自动打开浏览器渲染页面
+// webpack-dev-middleware等待webpack完成所有编译后，控制台输出完成提示，并自动打开浏览器渲染页面
 devMiddleware.waitUntilValid(() => {
   console.log(chalk.cyan(`> Listening at ${uri} \n`))
   if (autoOpenBrowser && !isTest && !process.env.npm_config_silence) {
@@ -85,14 +87,14 @@ devMiddleware.waitUntilValid(() => {
   webpack-hot-middleware是用来进行页面的热重载的,和 webpack-dev-middleware 配合使用实现热替换功能。
 
 ```javascript
-//webpack-hot-middleware用于实现热加载功能的中间件
+// webpack-hot-middleware用于实现热加载功能的中间件
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: false,   //关闭控制台的日志输出
-  heartbeat: 2000   //发送心跳包的频率
+  log: false,       // 关闭控制台的日志输出
+  heartbeat: 2000   // 发送心跳包的频率
 })
-//挂载热更新中间件
+// 挂载热更新中间件
 app.use(hotMiddleware)
-//webpack重新编译文件后，通过热加载强制页面刷新
+// webpack重新编译文件后，通过热加载强制页面刷新
 compiler.plugin('compilation', compilation => {
   compilation.plugin('html-webpack-plugin-after-emit', (data, cb) => {
     hotMiddleware.publish({ action: 'reload' })

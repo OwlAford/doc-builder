@@ -26,10 +26,10 @@ rm(path.join(settings.assetsRoot, settings.assetsSubDir), err => {
     spinner.stop()
     if (err) throw err
     process.stdout.write(stats.toString({
-      colors: true,  // 让打包的时候有颜色
-      modules: false,  // 去掉内置模块信息
-      children: false,  // 去掉子模块
-      chunks: false,  // 增加包信息（设置为 false 能允许较少的冗长输出）
+      colors: true,        // 让打包的时候有颜色
+      modules: false,      // 去掉内置模块信息
+      children: false,     // 去掉子模块
+      chunks: false,       // 增加包信息（设置为 false 能允许较少的冗长输出）
       chunkModules: false  // 去除包里内置模块的信息
     }) + '\n')
   })
@@ -69,13 +69,13 @@ new HtmlWebpackPlugin({
   filename: isTest ? 'index.html' : settings.index,
   favicon: resolve('static/favicon.ico'),
   template: resolve('static/index.ejs'),
-  inject: true,  // 将所有的 javascript 资源将被放置到 body 元素的底部
+  inject: true,                // 将所有的 javascript 资源将被放置到 body 元素的底部
   minify: {
-    removeComments: true,  // 删除html页面中的注释
-    collapseWhitespace: true,  // 删除html页面中的空格
+    removeComments: true,        // 删除html页面中的注释
+    collapseWhitespace: true,    // 删除html页面中的空格
     removeAttributeQuotes: true  // 删除各种html标签属性值的双引号
   },
-  //  在chunk被插入到html之前，你可以控制它们的排序
+  // 在chunk被插入到html之前，你可以控制它们的排序
   // 允许的值 ‘none’ | ‘auto’ | ‘dependency’ | {function} 默认为‘auto’
   // 'dependency'为按照不同文件的依赖关系来排序
   chunksSortMode: 'dependency'

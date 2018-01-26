@@ -12,15 +12,9 @@ const resolve = dir => path.join(__dirname, '..', dir)
 #### 入口配置(entry)
 
 ```javascript
-// 根据入口场景不同，入口配置也不同
-单入口：
+// 根据实际情况调整项目入口文件
 entry: {
   app: './src/main.js'
-}
-多入口：
-entry: {
-  a: './src/a.js'，
-  b: './src/b.js'
 }
 ```
 
@@ -28,9 +22,9 @@ entry: {
 
 ```javascript
 output: {
-  path: settings.build.assetsRoot,  //输出目录
-  filename: '[name].js',      //输出的文件名称
-  publicPath: settings[env].assetsPublicPath    //静态文件请求路径
+  path: settings.build.assetsRoot,                // 输出目录
+  filename: '[name].js',                          // 输出的文件名称
+  publicPath: settings[env].assetsPublicPath      // 静态文件请求路径
 }
 ```
 
@@ -38,22 +32,22 @@ output: {
 
 ```javascript
 let rules = [{
-  //对.vue结尾的文件使用vue-loader编译
+  // 对.vue结尾的文件使用vue-loader编译
   test: /\.vue$/,
   loader: 'vue-loader',
   options: vueLoaderConfig
 }, {
-  //对src和test文件夹下的js文件使用babel-loader将es6+转换成es5，使得浏览器可以识别
+  // 对src和test文件夹下的js文件使用babel-loader将es6+转换成es5，使得浏览器可以识别
   test: /\.js$/,
   loader: 'babel-loader',
   include: [resolve('src'), resolve('test')]
 }, {
-  //对图片的的大小进行限制，当小于10kb的时候图片被转成base64字符串写入css或html中。
+  // 对图片的的大小进行限制，当小于10kb的时候图片被转成base64字符串写入css或html中。
   test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
   loader: 'url-loader',
   options: {
     limit: 10000,
-    //图片的存储路径和名字
+    // 图片的存储路径和名字
     name: utils.assetsPath('img/[name].[hash:7].[ext]')
   }
 }]
